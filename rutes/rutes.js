@@ -13,7 +13,7 @@ router.get('/', (req, res)  => {
     res.send( {ok:true, msg: 'Escriba una direccion correcta'} )
   })
 
-router.get('/user', getData)
+router.get('/', getData)
 
 module.exports = router;  
 
