@@ -4,25 +4,25 @@
 /*
     Ruta: /api
 */
-const { db } = require("../firebase");
 const { Router } = require('express');
 const getData = require('../controllers/db.controller')
+const db = require("../services/db/firebase");
 
 const routerdb = Router();
 
 // Ruta para mostrar la lista de contactos
-routerdb.get("/db", getData.getContacts(req, res));
+routerdb.get("/", getData.getContacts);
 
 // Ruta para agregar un nuevo contacto
-routerdb.post("/new-contact", getData.addContact (req, res));
+routerdb.post("/new-contact", getData.addContact);
 
 // Ruta para eliminar un contacto
-routerdb.get("/delete-contact/:id",getData.DeleteContact(req, res) );
+routerdb.get("/delete-contact/:id",getData.DeleteContact);
 
 // Ruta para editar un contacto
-routerdb.get("/edit-contact/:id", getData.PutContact(req, res));
+routerdb.get("/edit-contact/:id", getData.PutContact);
 
 // Ruta para actualizar un contacto
-routerdb.post("/update-contact/:id", getData.saveContact(req, res));
+routerdb.post("/update-contact/:id", getData.saveContact);
 
 module.exports = routerdb;
