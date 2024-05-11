@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const router = require('./rutes/rutes')
+const routerdb = require('./rutes/db.rutes')
 
 // Crear servidor de express
 const app = express();
@@ -10,9 +11,9 @@ app.use(cors())
 
 //Rutes
 app.use('/', router);
+app.use('/db', routerdb);
 
-const port = 3500;
 
-app.listen(port, () => {
-  console.log('Servidor escuchando en el puerto: ' + port)
+app.listen(3000, () => {
+  console.log('Servidor escuchando en el puerto: ' + process.env.PORT || 3000)
 })
